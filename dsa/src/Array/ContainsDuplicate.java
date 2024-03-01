@@ -1,39 +1,27 @@
 package Array;
 import java.util.*;
 public class ContainsDuplicate {
- /*
-Given two strings s and t, return true if t is an anagram of s, and false otherwise.
+  /*
+   * 
+   * Given an integer array nums, return true if any value appears at least twice in the array, and return false if every element is distinct.
+   * Example 1:
+   * 
+   * Input: nums = [1,2,3,1]
+   * 
+   * Output: true
+   */
 
-An Anagram is a word or phrase formed by rearranging the letters of a different word or phrase, typically using all the original letters exactly once.
+   public static void main(String[]args){
+    System.out.println(IsContainsDup(new int []{1,2,3,4,55,2}));
 
- 
+   }
 
-Example 1:
-
-Input: s = "anagram", t = "nagaram"
-Output: true
-
-
-  */
-  
-  public static void main(String[]args){
-    System.out.println(ValidAnagram("anagram","negaram"));
-  }
-  private static Boolean ValidAnagram(String s,String t){
-    if(s.length()!=t.length()) return false;
-    HashMap<Character,Integer> map=new HashMap<Character,Integer>();
-    for(char c:s.toCharArray()){
-        if(!map.containsKey(c)){
-            map.put(c,1);
-        }
-        else{
-            map.put(c,map.get(c)+1);
-        }
-    }
-    for(char c:t.toCharArray()){
-        if(!map.containsKey(c))return false;
-        else map.put(c,map.get(c)-1);
-    }
-    return true;
-  }
+   private static Boolean IsContainsDup(int[]a){
+      HashSet<Integer> data=new HashSet<Integer>();
+      for(int i:a){
+        if(data.contains(i))return true;
+        else data.add(i);
+      }
+      return false;
+   }
 }
