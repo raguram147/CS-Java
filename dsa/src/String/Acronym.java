@@ -2,7 +2,7 @@ package String;
 import java.util.*;
 public class Acronym {
     public static void main(String[]args){
-        System.out.println(IsAcronym(Arrays.asList("apple","ball","cat"),"ab"));
+        System.out.println(IsAcronym(Arrays.asList("apple","ball","cat"),"abc"));
     }
     public static Boolean IsAcronym(List<String> words, String s) {
         String temp="";

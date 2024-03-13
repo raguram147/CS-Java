@@ -1,4 +1,4 @@
-package Array;
+
 
 public class LognestSeqPerfixSum {
     public static void main(String []args){
