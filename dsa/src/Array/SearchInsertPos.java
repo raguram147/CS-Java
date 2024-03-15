@@ -26,7 +26,7 @@ Output: 1
         System.out.println(Search(new int[] {1,3,5,6},2));
     }
 
-    public int Search(int[] a, int t) {
+    public static int Search(int[] a, int t) {
         int start=0;
         int end=a.length-1;
         while(start<=end){
