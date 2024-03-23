@@ -85,4 +85,39 @@ public class LinkedList {
         }
         return list;
     }
+    public void Search(LinkedList list, int key){
+        Node cur=list.head;
+        int index=0;
+        while(cur!=null){
+            if(cur.data==key){
+                System.out.println("The element "+key+" found in "+index+"th index");
+                return;
+            }
+            cur=cur.next;
+        }
+        System.out.println("The element "+key+ " is not found");
+        return;
+
+    }
+    public void Sort(LinkedList list){
+        Node cur=list.head;
+
+        System.out.println(mid(list));
+    }
+    private int mid(LinkedList list){
+        Node cur=list.head;
+        int midd=0;
+        while(cur!=null){
+            midd++;
+            cur=cur.next;
+        }
+        cur=list.head;
+        midd=midd/2;
+        while(cur!=null){
+            midd--;
+            if(midd==0) return cur.next.data;
+            cur=cur.next;
+        }
+        return -1;
+    }
 }

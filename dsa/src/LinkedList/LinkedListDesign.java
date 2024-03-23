@@ -1,5 +1,4 @@
 package LinkedList;
-import java.io.*;
 import java.util.Scanner;
 public class LinkedListDesign {
     
@@ -35,13 +34,18 @@ public class LinkedListDesign {
                 list.Delete(list,t);
                 break;
             case 3:
-                System.out.println("Please enter the element to be search");
-                int s=scan.nextInt();
-                list.Delete(list,s);
+                // System.out.println("Please enter the element to be search");
+                // int s=scan.nextInt();
+                list.Sort(list);
                 break;
                 
             case 4:
                 list.Display(list);
+                break;
+            case 5:
+                System.out.println("Please enter the element to serach");
+                int key=scan.nextInt();
+                list.Search(list,key);
                 break;
             case 6:
                 System.out.println("Please enter the element to be removed from the list");
