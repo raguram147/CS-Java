@@ -6,14 +6,14 @@ public class SlideWindowNeg {
     }
     public static void SlideNeg(int arr[],int k){
         List<Integer> data=new ArrayList<Integer>();
-        Deque<Integer> d=new LinkedList<Integer>();
+        List<Integer> data1=new ArrayList<Integer>();
         FindNeg(arr,k,data);
-        OptimalFindNeg(arr,k,d);
+        OptimalFindNeg(arr,k,data1);
         for(int i:data){
             System.out.println(i);
         }
-        System.out.println("Optimal approach using LINKED LIST");
-        for(int i:d){
+        System.out.println("Optimal approach tracking the index in memory");
+        for(int i:data1){
             System.out.println(i);
         }
     }
@@ -37,19 +37,19 @@ public class SlideWindowNeg {
     /*
     This is a optimal solution of Time=> O(n)
     */ 
-    private static void OptimalFindNeg(int[]arr,int k,Deque<Integer>d){
-        for(int i=0;i<k;i++){
-            if(arr[i]<0){
-                d.addLast(i);
+    private static void OptimalFindNeg(int[]arr,int k,List<Integer>d){
+        int negIndex=0;
+        // int negElement;
+        for(int i=k-1;i<arr.length;i++){
+            while((negIndex<i)&&(negIndex<=i-k||arr[negIndex]>=0)){
+                negIndex++;
             }
-        }
-        for(int i=k;i<arr.length;i++){
-           if(d.isEmpty()) 
-            while(!d.isEmpty()&& d.peekFirst()<i-k+1){
-                d.removeFirst();
+
+            if(arr[negIndex]<0){
+                d.add(arr[negIndex]);
             }
-            if(i<arr.length && arr[i]<0){
-                d.addLast(i);
+            else{
+                d.add(0);
             }
         }
     }
